@@ -2,3 +2,16 @@
   margin-top: 0;
   font-size: $font-size;
 }
+
+@mixin flex($justify-content, $align-item, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-item;
+}
+
+@mixin button($background-color, $font-color, $border: none) {
+  background-color: $background-color;
+  color: $font-color;
+  border: $border;
+}

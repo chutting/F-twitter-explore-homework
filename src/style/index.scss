@@ -1,3 +1,120 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
+
+header {
+  position: absolute;
+  padding: 15px 20px;
+  width: 100%;
+  @include flex(space-between, center);
+  border: 1px solid $border-color;
+
+  nav {
+    @include flex(center, center);
+
+    .navigator {
+      @include flex(center, center);
+
+      .nav-button {
+        width: 90px;
+        margin-right: 5px;
+      }
+
+      .nav-login {
+        @extend .custom-button;
+        @extend .nav-button;
+        @extend .login;
+      }
+
+      .nav-register {
+        @extend .custom-button;
+        @extend .nav-button;
+        @extend .primary-button;
+      }
+    }
+  }
+}
+
+.custom-button {
+  height: 30px;
+  border-radius: 15px;
+  font-size: $font-size-base;
+  border: none;
+  outline: none;
+
+  &:hover {
+    border-color: $link-hover-color;
+    color: $white;
+    background-color: $link-hover-color;
+  }
+}
+
+.primary-button {
+  @include button($primary-color, $white);
+}
+
+.login {
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
+
+main {
+  @include flex(center, center);
+  height: 100%;
+
+  .mainContent {
+    border: 1px solid $border-color;
+    padding: 30px;
+    border-radius: $border-radius-base;
+
+    .messageInput {
+      @include flex(center, flex-start, column);
+      margin-top: 10px;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        line-height: $line-height-base;
+        border-bottom: 1px solid $border-color;
+        padding: 20px 0;
+      }
+    }
+
+    .passwordLoss {
+      color: $primary-color;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      font-size: $font-size-base;
+      margin: 10px 0;
+      &:hover {
+        color: $white;
+      }
+    }
+
+    .submit {
+      @include flex(center, center, column);
+      li {
+        width: 100%;
+
+        .or {
+          text-align: center;
+        }
+
+        .main-login {
+          width: 100%;
+          @extend .custom-button;
+          @extend .login;
+        }
+
+        .main-register {
+          width: 100%;
+          @extend .custom-button;
+          @extend .primary-button;
+        }
+      }
+    }
+  }
+}
